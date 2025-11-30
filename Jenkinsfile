@@ -28,6 +28,7 @@ pipeline {
             ls -la
             npm ci
             npm run build
+            ls -la
           '''
         
       }
