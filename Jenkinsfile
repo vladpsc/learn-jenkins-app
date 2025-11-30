@@ -12,7 +12,7 @@ pipeline {
       }
     }
     
-    stage('This Runs Docker') {
+    stage('buld') {
       agent {
         docker {
           image 'node:18-alpine'
@@ -24,8 +24,10 @@ pipeline {
           sh '''
             echo 'Hello World with docker'
             npm --version
+            node --version
             ls -la
-            touch container-yes.txt
+            npm ci
+            npm run build
           '''
         
       }
