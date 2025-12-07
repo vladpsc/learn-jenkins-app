@@ -29,6 +29,21 @@ pipeline {
             npm ci
             npm run build
             ls -la
+          '''
+        
+      }
+    }
+
+        stage('Install netlify') {
+      agent {
+        docker {
+          image 'node:18-alpine'
+          reuseNode true
+        }
+      }
+
+      steps {
+          sh '''
             echo '@@@Down from here will install NETLIFY@@@'
             npm install netlify-cli
             echo '@@@The netlify version is: '
