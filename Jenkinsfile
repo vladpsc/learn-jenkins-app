@@ -29,6 +29,9 @@ pipeline {
             npm ci
             npm run build
             ls -la
+            echo '@@@Down from here will install NETLIFY@@@'
+            npm install netlify-cli
+            netlify --version
           '''
         
       }
