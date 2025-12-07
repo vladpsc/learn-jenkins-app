@@ -22,13 +22,8 @@ pipeline {
 
       steps {
           sh '''
-            echo 'Hello World with docker'
-            npm --version
-            node --version
-            ls -la
-            npm ci
-            npm run build
-            ls -la
+            npm -install  netlify-cli
+            netlify --version
           '''
         
       }
