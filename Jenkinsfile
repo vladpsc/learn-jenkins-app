@@ -31,7 +31,8 @@ pipeline {
             ls -la
             echo '@@@Down from here will install NETLIFY@@@'
             npm install netlify-cli
-            netlify --version
+            echo '@@@The netlify version is: '
+            node_modules/.bin/netlify --version
           '''
         
       }
