@@ -40,27 +40,6 @@ pipeline {
       }
     }
 
-        stage('Install netlify') {
-      agent {
-        docker {
-          image 'node:18-alpine'
-          reuseNode true
-        }
-      }
-
-      steps {
-          sh '''
-            echo '@@@Down from here will install NETLIFY@@@'
-            npm install netlify-cli
-            echo '@@@The netlify version is: '
-            node_modules/.bin/netlify --version
-            $NDIR status
-            $NDIR deploy --dir=build --prod
-          '''
-        
-      }
-    }
-
     stage('Test build'){
       agent {
         docker {
@@ -80,6 +59,27 @@ pipeline {
         always {
           junit 'test-results/junit.xml'
         }
+      }
+    }
+
+    stage('Install netlify') {
+      agent {
+        docker {
+          image 'node:18-alpine'
+          reuseNode true
+        }
+      }
+
+      steps {
+          sh '''
+            echo '@@@Down from here will install NETLIFY@@@'
+            npm install netlify-cli
+            echo '@@@The netlify version is: '
+            node_modules/.bin/netlify --version
+            $NDIR status
+            $NDIR deploy --dir=build --prod
+          '''
+        
       }
     }
 
