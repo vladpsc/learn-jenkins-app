@@ -53,7 +53,7 @@ pipeline {
             npm install netlify-cli
             echo '@@@The netlify version is: '
             node_modules/.bin/netlify --version
-            node_modules/.bin/netlify --status
+            node_modules/.bin/netlify status
           '''
         
       }
