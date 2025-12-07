@@ -71,14 +71,14 @@ pipeline {
       }
 
       steps {
-          sh '''
-            echo '@@@Down from here will install NETLIFY@@@'
-            npm install netlify-cli
-            echo '@@@The netlify version is: '
-            node_modules/.bin/netlify --version
-            $NDIR status
-            $NDIR deploy --dir=build --prod
-          '''
+        sh '''
+          echo '@@@Down from here will install NETLIFY@@@'
+          npm install netlify-cli
+          echo '@@@The netlify version is: '
+          node_modules/.bin/netlify --version
+          $NDIR status
+          $NDIR deploy --dir = build --prod
+        '''
         
       }
     }
