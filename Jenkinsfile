@@ -55,6 +55,7 @@ pipeline {
             echo '@@@The netlify version is: '
             node_modules/.bin/netlify --version
             $NDIR status
+            $NDIR deploy --dir=build --prod
           '''
         
       }
